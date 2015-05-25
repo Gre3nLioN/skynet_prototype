@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="weatherKnows">
+    <head>
+        <title>Knows</title>
+        <link href="/js/vendors/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.8.2/angular-material.min.css">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link href="/css/style.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    <div class="container">
+    	<div class="row">
+      	
+	    	<h1> SkyNet <small>Prototype</small></h1>
+		</div>
+		<div class="row">
+		<input type="text"  placeholder="Text here, ask me." id="text">
+		</div>
+		<div class="row centered">
+			<div class="preloader-wrapper big active">
+		    <div class="spinner-layer spinner-blue-only">
+		      <div class="circle-clipper left">
+		        <div class="circle"></div>
+		      </div>		      
+		    </div>
+		  </div>
+		</div>
+		<div class="row">
+		 <button class="btn waves-effect btn-large waves-light enviar" type="submit" name="action">Submit
+	    	<i class="mdi-content-send right"></i>
+	    </div>
+		
+	</div>
+  </button>
+  </button>
+ 	
+    <script type="text/javascript" src="js/vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendors/moving-averager.js"></script>
+	<script type="text/javascript" src="js/vendors/request-animation-frame.js"></script>
+	<script type="text/javascript" src="js/vendors/dat.gui.min.js"></script>	
+ 	<script type="text/javascript" src="js/vendors/simple-motion-detector.js"></script>
+	<script type="text/javascript" src="js/vendors/detector.js"></script>
+	<script type="text/javascript" src="js/vendors/glfx-neu.js"></script>
+	<script type="text/javascript" src="js/vendors/three.min.js"></script>	
+       
+  
+	<script type="text/javascript" src="js/vendors/webgl_motion_detector.js"></script> 
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			$('.enviar').click(function(e){
+					console.log("asd");
+					var inputText = $('#text').val();
+					$.ajax({
+						method: 'POST',
+						url: "send",
+						data: {text: inputText}
+					})
+					.done(function( response) {
+						var audio = new Audio('response');
+						audio.play();
+						$('#text').val('');
+					});
+			});	
+		});
+	</script>
+    </body>
+</html>

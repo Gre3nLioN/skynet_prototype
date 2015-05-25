@@ -1,0 +1,26 @@
+body{
+	background: black;
+	color:white;
+}
+button.btn.waves-effect.btn-large.waves-light{
+  width: 84%;
+  height: 100px;
+  font-size: 3em;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 0;
+
+}
+input[type=text]{
+	font-size: 4em;
+  height: 2em;
+  border: 0;
+  color: white;
+}
+
+div.row.centered{
+  width: 100%;
+  text-align: center;
+}
+
+  
